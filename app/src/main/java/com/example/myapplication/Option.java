@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.myapplication.dao.Database;
+
 public class Option extends AppCompatActivity {
 ImageView image;
 
@@ -36,15 +38,27 @@ ImageView image;
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(Option.this); // Replace "YourActivity" with your actual activity name
 
-                // Set the dialog properties
+
                 builder.setTitle("Confirmation");
                 builder.setMessage("Are you sure you want to confirm?");
 
-                // Set positive button with click listener
+
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
+
+                        Database database = new Database(getApplicationContext(), "healthcare", null,1);
+                        BookingRequest bookingRequest = new BookingRequest();
+                        bookingRequest.setName("Karim");
+                        bookingRequest.setPhone("015347686");
+                        bookingRequest.setPick("Khilgaon");
+                        bookingRequest.setDrop("Banani");
+                        bookingRequest.setFare(300);
+                        bookingRequest.setStatus(true);
+                        database.addNewRequest(bookingRequest);
+
+
                         Toast.makeText(getApplicationContext(), "Request Sent!Please Wait to be confirmed", Toast.LENGTH_LONG).show();
-                        // Add your logic here
+
                     }
                 });
 
@@ -68,9 +82,45 @@ ImageView image;
             @Override
             public void onClick(View v) {
 
+                AlertDialog.Builder builder = new AlertDialog.Builder(Option.this); // Replace "YourActivity" with your actual activity name
 
 
-                Toast.makeText(getApplicationContext(), "Request Sent!Please Wait to be confirmed", Toast.LENGTH_LONG).show();
+                builder.setTitle("Confirmation");
+                builder.setMessage("Are you sure you want to confirm?");
+
+
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+
+                        Database database = new Database(getApplicationContext(), "healthcare", null,1);
+                        BookingRequest bookingRequest = new BookingRequest();
+                        bookingRequest.setName("Karim");
+                        bookingRequest.setPhone("015347686");
+                        bookingRequest.setPick("Khilgaon");
+                        bookingRequest.setDrop("Banani");
+                        bookingRequest.setFare(300);
+                        bookingRequest.setStatus(true);
+                        database.addNewRequest(bookingRequest);
+
+
+                        Toast.makeText(getApplicationContext(), "Request Sent!Please Wait to be confirmed", Toast.LENGTH_LONG).show();
+
+                    }
+                });
+
+                // Set negative button with click listener
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // Perform the desired action when "No" button is clicked
+                        // Add your logic here
+                    }
+                });
+
+                // Create and show the AlertDialog
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+
 
 
 
@@ -85,7 +135,43 @@ ImageView image;
 
 
 
-                Toast.makeText(getApplicationContext(), "Request Sent!Please Wait to be confirmed", Toast.LENGTH_LONG).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(Option.this); // Replace "YourActivity" with your actual activity name
+
+
+                builder.setTitle("Confirmation");
+                builder.setMessage("Are you sure you want to confirm?");
+
+
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+
+                        Database database = new Database(getApplicationContext(), "healthcare", null,1);
+                        BookingRequest bookingRequest = new BookingRequest();
+                        bookingRequest.setName("Karim");
+                        bookingRequest.setPhone("015347686");
+                        bookingRequest.setPick("Khilgaon");
+                        bookingRequest.setDrop("Banani");
+                        bookingRequest.setFare(300);
+                        bookingRequest.setStatus(true);
+                        database.addNewRequest(bookingRequest);
+
+
+                        Toast.makeText(getApplicationContext(), "Request Sent!Please Wait to be confirmed", Toast.LENGTH_LONG).show();
+
+                    }
+                });
+
+                // Set negative button with click listener
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // Perform the desired action when "No" button is clicked
+                        // Add your logic here
+                    }
+                });
+
+                // Create and show the AlertDialog
+                AlertDialog dialog = builder.create();
+                dialog.show();
 
 
 

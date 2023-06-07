@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import com.example.myapplication.BookingRequest;
 import com.example.myapplication.entity.Car;
 import com.example.myapplication.entity.Driver;
+import com.example.myapplication.entity.Route;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,23 +37,39 @@ public class Database extends SQLiteOpenHelper {
 
         String query2 = "CREATE TABLE USER(ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, GENDER TEXT,COURSE TEXT, EMAIL TEXT, PASSWORD TEXT)";
         String query3 = "CREATE TABLE Driver(ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, NID TEXT,PHONE TEXT, EMAIL TEXT, ADDRESS TEXT, DISTRICT TEXT)";
-        String query4 = "CREATE TABLE Car(ID INTEGER PRIMARY KEY AUTOINCREMENT, REGIS TEXT, CATEGORY TEXT,MODEL TEXT,DRIVERNAME TEXT)";
-        String query5 = "CREATE TABLE Request(ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, NUMBER TEXT,PICK TEXT,DRO TEXT,STATUS BOOLEAN)";
+        String query4 = "CREATE TABLE Car(ID INTEGER PRIMARY KEY AUTOINCREMENT, REGIS TEXT, CATEGORY TEXT,MODEL TEXT,FARE NUMBER,DRIVERNAME TEXT)";
+        String query5 = "CREATE TABLE Request(ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, PHONE TEXT,PICK TEXT,DRO TEXT,FARE NUMBER,STATUS BOOLEAN)";
+        String query6 = "CREATE TABLE Route(ID INTEGER PRIMARY KEY AUTOINCREMENT, LOCATION TEXT, LATITUDE NUMBER,LONGITUDE NUMBER)";
+
         db.execSQL(query2);
         db.execSQL(query3);
         db.execSQL(query4);
         db.execSQL(query5);
+        db.execSQL(query6);
     }
 
     public void addNewRequest(BookingRequest bookingRequest){
         SQLiteDatabase sqLiteDatabase1 = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("NAME", bookingRequest.);
-        values.put("NUMBER", car.getCategory());
-        values.put("PICK", car.getModel());
-        values.put("DRO", car.getDriverName());
-        values.put("STATUS", car.getDriverName());
-        sqLiteDatabase1.insert("",null,values);
+        values.put("NAME", bookingRequest.getName());
+        values.put("PHONE", bookingRequest.getPhone());
+        values.put("PICK", bookingRequest.getPick());
+        values.put("DRO", bookingRequest.getDrop());
+        values.put("FARE", bookingRequest.getFare());
+        values.put("STATUS", bookingRequest.isStatus());
+        sqLiteDatabase1.insert("Request",null,values);
+        sqLiteDatabase1.close();
+
+    }
+
+    public void addNewRoute(Route route){
+        SQLiteDatabase sqLiteDatabase1 = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("LOCATION", route.getLocation());
+        values.put("LATITUDE", route.getLatitude());
+        values.put("LONGITUDE", route.getLongitude());
+
+        sqLiteDatabase1.insert("Route",null,values);
         sqLiteDatabase1.close();
 
     }
@@ -65,6 +82,7 @@ public class Database extends SQLiteOpenHelper {
         values.put("REGIS", car.getRegis());
         values.put("CATEGORY", car.getCategory());
         values.put("MODEL", car.getModel());
+        values.put("FARE", car.getFare());
         values.put("DRIVERNAME", car.getDriverName());
         sqLiteDatabase1.insert("Car",null,values);
         sqLiteDatabase1.close();
@@ -93,6 +111,15 @@ public class Database extends SQLiteOpenHelper {
         sqLiteDatabase2.close();
 
     }
+
+
+
+
+
+
+
+
+
 
     public ArrayList<HashMap<String, String>> getAllCar() {
 

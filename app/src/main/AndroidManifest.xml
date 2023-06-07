@@ -18,7 +18,7 @@
             android:label="@string/title_activity_navigatio"
             android:theme="@style/Theme.MyApplication.NoActionBar" />
         <activity
-            android:name=".DriverDashboard"
+            android:name=".Login"
             android:exported="false" />
         <activity
             android:name=".Option"
@@ -30,7 +30,7 @@
             android:name=".Home2"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".DriverDashboard"
             android:exported="true"
             tools:ignore="DuplicateActivity">
             <intent-filter>

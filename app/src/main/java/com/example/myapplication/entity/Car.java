@@ -5,6 +5,7 @@ public class Car {
     private String regis;
     private String category;
     private String model;
+    private int fare;
     private String driverName;
 
     public String getDriverName() {
@@ -47,4 +48,11 @@ public class Car {
         this.model = model;
     }
 
+    public int getFare() {
+        return fare;
+    }
+
+    public void setFare(int fare) {
+        this.fare = fare;
+    }
 }
