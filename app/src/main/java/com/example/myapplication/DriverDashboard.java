@@ -24,9 +24,29 @@ public class DriverDashboard extends AppCompatActivity  {
     private static final int BLINK_INTERVAL = 500; // Blink interval in milliseconds
     private boolean isButtonVisible = true;
 
+    private void startBlinkAnimation() {
+        handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (isButtonVisible) {
+                    buttonshow.setVisibility(View.INVISIBLE);
+                } else {
+                    buttonshow.setVisibility(View.VISIBLE);
+                }
+                isButtonVisible = !isButtonVisible;
+                handler.postDelayed(this, BLINK_INTERVAL);
+            }
+        }, BLINK_INTERVAL);
+    }
 
-
-
+    private void stopBlinkAnimation() {
+        if (handler != null) {
+            handler.removeCallbacksAndMessages(null);
+            handler = null;
+        }
+        buttonshow.setVisibility(View.VISIBLE);
+    }
 
 
 
@@ -41,6 +61,9 @@ public class DriverDashboard extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver_dashboard);
         buttonshow = findViewById(R.id.button);
+
+
+        startBlinkAnimation();
 
 
         buttonshow.setOnClickListener(new View.OnClickListener() {
