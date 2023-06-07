@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CarList">
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:background="@color/blue"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        app:layout_constraintBottom_toBottomOf="@+id/listViewUD"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.134">
+
+        <TextView
+            android:id="@+id/line_hid"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.05"
+            android:text="Registration"
+            android:textColor="@color/gold"
+            android:textSize="13sp" />
+
+
+        <TextView
+            android:id="@+id/line_h1"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:text="Category"
+            android:textColor="@color/gold"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/line_h2"
+            android:layout_width="79dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.30"
+            android:text="Model"
+            android:textColor="@color/gold"
+            android:textSize="13sp" />
+
+
+
+
+
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listViewUD"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="0dp" />
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

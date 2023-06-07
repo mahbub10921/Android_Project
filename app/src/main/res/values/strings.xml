@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="title_activity_drawer">Drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="col1">Name</string>
+    <string name="col2">Age</string>
+    <string name="col3">Surname</string>
+    <string name="row1Name">Ali</string>
+    <string name="row1Age">51</string>
+    <string name="row1Surname">Mohammad</string>
+    <string name="row2Name">Dave</string>
+    <string name="row2Age">45</string>
+    <string name="row2Surname">Smith</string>
+    <string name="row3Name">Jason</string>
+    <string name="row3Age">67</string>
+    <string name="row3Surname">William</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_about">About</string>
+
+    <array name="District">
+        <item>Dhaka</item>
+        <item>Chandpur</item>
+        <item>Cumilla</item>
+        <item>Dhaka</item>
+        <item>Dhaka</item>
+
+    </array>
+    <string name="title_activity_navigatio">NavigatioActivity</string>
+
+
+</resources>
