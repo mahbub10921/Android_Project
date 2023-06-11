@@ -40,12 +40,14 @@ public class DriverDashboard extends AppCompatActivity  {
         }, BLINK_INTERVAL);
     }
 
-    private void stopBlinkAnimation() {
-        if (handler != null) {
-            handler.removeCallbacksAndMessages(null);
-            handler = null;
-        }
-        buttonshow.setVisibility(View.VISIBLE);
+    public void stopBlinkAnimation() {
+//        if (handler != null) {
+////            handler.removeCallbacksAndMessages(null);
+//            handler = null;
+//        }
+//        buttonshow.setVisibility(View.VISIBLE);
+
+
     }
 
 
@@ -60,7 +62,7 @@ public class DriverDashboard extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver_dashboard);
-        buttonshow = findViewById(R.id.button);
+        buttonshow = findViewById(R.id.button55);
 
 
         startBlinkAnimation();
@@ -69,6 +71,7 @@ public class DriverDashboard extends AppCompatActivity  {
         buttonshow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
                 MyDialogFragment dialogFragment = new MyDialogFragment();
                 dialogFragment.show(getSupportFragmentManager(), "dialog");

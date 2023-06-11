@@ -15,6 +15,7 @@ import com.example.myapplication.BookingRequest;
 import com.example.myapplication.entity.Car;
 import com.example.myapplication.entity.Driver;
 import com.example.myapplication.entity.Route;
+import com.example.myapplication.entity.RouteList;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -148,6 +149,71 @@ public class Database extends SQLiteOpenHelper {
         db.close();
         return carList;
     }
+
+
+
+
+    @SuppressLint("Range")
+    public ArrayList<RouteList> getAllRoute() {
+        ArrayList<RouteList> dataList = new ArrayList<>();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM Route", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                RouteList data = new RouteList();
+                data.setId(cursor.getLong(cursor.getColumnIndex("ID")));
+                data.setLocation(cursor.getString(cursor.getColumnIndex("LOCATION")));
+                data.setLatitude(cursor.getDouble(cursor.getColumnIndex("LATITUDE")));
+                data.setLongitude(cursor.getDouble(cursor.getColumnIndex("LONGITUDE")));
+                dataList.add(data);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return dataList;
+    }
+
+
+    @SuppressLint("Range")
+    public ArrayList<Car> getAllCar2() {
+        ArrayList<Car> dataList = new ArrayList<>();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM Car", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Car car = new Car();
+                car.setId(cursor.getInt(cursor.getColumnIndex("ID")));
+                car.setFare(cursor.getInt(cursor.getColumnIndex("LOCATION")));
+                car.setModel(cursor.getString(cursor.getColumnIndex("LATITUDE")));
+                car.setDriverName(cursor.getString(cursor.getColumnIndex("LONGITUDE")));
+                car.setCategory(cursor.getString(cursor.getColumnIndex("LONGITUDE")));
+                car.setRegis(cursor.getString(cursor.getColumnIndex("LONGITUDE")));
+
+                dataList.add(car);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return dataList;
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 
